@@ -1,0 +1,25 @@
+name: 'conduit-toolchain'
+description: 'Install Conduit'
+author: 'Andrew Huang'
+branding:
+  icon: play-circle
+  color: black
+inputs:
+  version:
+    default: nightly
+    description: |
+      Conduit-cli version.
+
+      This version number has to match a released version of Conduit.
+      Alternatively you can also specify `nightly` for the latest nightly build.
+    api_key:
+      required: true
+      description: |
+        Your api-key. You can get this by running `conduit login` locally, or creating an API-key in your Conduit settings.
+    organization:
+      required: true
+      description: |
+        The organization you will be running under
+runs:
+  using: node16
+  main: dist/index.js
