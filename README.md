@@ -25,7 +25,7 @@ jobs:
           api_key: ${{ secrets.API_KEY }}
           organization: ${{ secrets.ORGANIZATION }}
 
-      - name: Run snapshot
+      - name: create network
         run: conduit network create --name "my-network"
 ```
 
@@ -34,7 +34,5 @@ jobs:
 | **Name**  | **Required** | **Description**                                                                                               | **Type** |
 |-----------|--------------|---------------------------------------------------------------------------------------------------------------|----------|
 | `version` | No          | Version to install, e.g. `nightly` or `1.0.0`.  **Note:** Conduit only has nightly builds for the time being. | string   |
----------------------------------------------------------------------------------------------------------------|----------|
 | `api_key` | Yes          | API key to use. You can get this by running `conduit login` locally or by creating a one in your settings | string   |
----------------------------------------------------------------------------------------------------------------|----------|
 | `organization` | Yes          | Which organization this installation is targeting. Can be overriden on the command line. | string   |
