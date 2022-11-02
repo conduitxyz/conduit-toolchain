@@ -22,16 +22,25 @@ jobs:
         uses: conduit-xyz/conduit-toolchain@v1
         with:
           version: nightly
-          api_key: ${{ secrets.API_KEY }}
-          organization: ${{ secrets.ORGANIZATION }}
+          api_key: ${{ secrets.CONDUIT_API_KEY }}
+          organization: ${{ secrets.CONDUIT_ORGANIZATION }}
 
       - name: create network
-        run: conduit network create --name "my-network"
-      # Use jq to parse the response, and run tests agains the rpc url
+        run: conduit network create --name "my-network-${{github.run_id}}" > out.json
+      
+      - name: extract identifiers
+        id: data
+        run: |
+          echo "RPC_URL= $(jq '.network.rpcURL' out.json)" >> $GITHUB_OUTPUT
+          echo "NETWORK_ID= $(jq '.network.network' out.json)" >> $GITHUB_OUTPUT
+ 
+      - name: version check rpc url
+        run: |
+          curl -vvv -H "Content-Type: application/json" -X POST -d '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' ${{ steps.data.outputs.RPC_URL }}
       
       # Once done, clean up the network
       - name: delete network
-        run: conduit network delete --name "my-network"
+        run: conduit network delete --network ${{ steps.data.outputs.NETWORK_ID }}
 ```
 
 ### Inputs
