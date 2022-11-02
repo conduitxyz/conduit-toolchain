@@ -27,6 +27,11 @@ jobs:
 
       - name: create network
         run: conduit network create --name "my-network"
+      # Use jq to parse the response, and run tests agains the rpc url
+      
+      # Once done, clean up the network
+      - name: delete network
+        run: conduit network delete --name "my-network"
 ```
 
 ### Inputs
