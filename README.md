@@ -1,6 +1,6 @@
 ## `conduit-toolchain` Action
 
-This GitHub Action installs [Conduit](https://github.com/conduit-xyz/conduit-cli).
+This GitHub Action installs [Conduit](https://github.com/conduitxyz/conduit-cli).
 
 ### Example workflow
 
