@@ -2,7 +2,7 @@ const os = require('os')
 
 function mapArch (arch) {
   const mappings = {
-    x32: '386',
+    ia32: '386',
     x64: 'amd64'
   }
 
