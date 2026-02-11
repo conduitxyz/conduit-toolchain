@@ -222,7 +222,7 @@ function getInput(name, options) {
 }
 exports.getInput = getInput;
 /**
- * Gets the values of an multiline input.  Each value is also trimmed.
+ * Gets the values of a multiline input.  Each value is also trimmed.
  *
  * @param     name     name of the input to get
  * @param     options  optional. See InputOptions.
@@ -400,7 +400,7 @@ function saveState(name, value) {
 }
 exports.saveState = saveState;
 /**
- * Gets the value of an state set by this action's main execution.
+ * Gets the value of a state set by this action's main execution.
  *
  * @param     name     name of the state to get
  * @returns   string
@@ -2790,7 +2790,7 @@ function readCopyOptions(options) {
 }
 function cpDirRecursive(sourceDir, destDir, currentDepth, force) {
     return __awaiter(this, void 0, void 0, function* () {
-        // Ensure there is not a run away recursive copy
+        // Ensure there is not a runaway recursive copy
         if (currentDepth >= 255)
             return;
         currentDepth++;
@@ -3131,7 +3131,7 @@ const IS_WINDOWS = process.platform === 'win32';
 const IS_MAC = process.platform === 'darwin';
 const userAgent = 'actions/tool-cache';
 /**
- * Download a tool from an url and stream it into a file
+ * Download a tool from a url and stream it into a file
  *
  * @param url       url of tool to download
  * @param dest      path to download tool
@@ -3672,7 +3672,7 @@ function isExplicitVersion(versionSpec) {
 }
 exports.isExplicitVersion = isExplicitVersion;
 /**
- * Get the highest satisfiying semantic version in `versions` which satisfies `versionSpec`
+ * Get the highest satisfying semantic version in `versions` which satisfies `versionSpec`
  *
  * @param versions        array of versions to evaluate
  * @param versionSpec     semantic version spec to satisfy
@@ -3880,7 +3880,7 @@ tok('GTLT')
 src[t.GTLT] = '((?:<|>)?=?)'
 
 // Something like "2.*" or "1.2.x".
-// Note that "x.x" is a valid xRange identifer, meaning "any version"
+// Note that "x.x" is a valid xRange identifier, meaning "any version"
 // Only the first item is strictly required.
 tok('XRANGEIDENTIFIERLOOSE')
 src[t.XRANGEIDENTIFIERLOOSE] = src[t.NUMERICIDENTIFIERLOOSE] + '|x|X|\\*'
@@ -5230,7 +5230,7 @@ function outside (version, range, hilo, options) {
       throw new TypeError('Must provide a hilo val of "<" or ">"')
   }
 
-  // If it satisifes the range it is not outside
+  // If it satisfies the range it is not outside
   if (satisfies(version, range, options)) {
     return false
   }
